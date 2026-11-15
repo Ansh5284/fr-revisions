@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial Reporting Revision Hub</title>
+<meta name="description" content="Chapter-wise slides, infographics, modules and practice questions for Financial Reporting revision.">
+<style>
+:root{
+  --bg:#f6f7fb; --surface:#ffffff; --text:#1b2130; --muted:#5d6678; --line:#e3e6ee;
+  --brand:#2f5bea; --brand-soft:#e8eeff;
+  --slides:#e8590c; --slides-bg:#fff0e6;
+  --info:#7048e8;   --info-bg:#f1ecff;
+  --module:#1c7ed6; --module-bg:#e7f3ff;
+  --practice:#2b8a3e; --practice-bg:#e6f7ea;
+  --other:#667085;  --other-bg:#eef0f4;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 4px 14px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f1219; --surface:#171b26; --text:#e8ebf3; --muted:#9aa3b8; --line:#272d3d;
+    --brand:#7b9bff; --brand-soft:#1d2644;
+    --slides:#ff9a5c; --slides-bg:#33231a;
+    --info:#b197fc;   --info-bg:#271f3d;
+    --module:#74c0fc; --module-bg:#16293a;
+    --practice:#69db7c; --practice-bg:#16301d;
+    --other:#aab2c5;  --other-bg:#222736;
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+button{font:inherit;color:inherit;cursor:pointer}
+svg{display:block}
+
+.top{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 20px;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center;min-width:0}
+.logo{width:40px;height:40px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.brand h1{font-size:1.1rem;margin:0;line-height:1.2}
+.brand p{margin:0;font-size:.8rem;color:var(--muted)}
+.actions{display:flex;gap:10px;align-items:center;flex:1;justify-content:flex-end;min-width:240px}
+#search{flex:1;max-width:340px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:inherit}
+#search:focus{outline:2px solid var(--brand);outline-offset:1px}
+.btn{padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:.9rem}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn:hover{filter:brightness(.97)}
+
+#notice{margin:16px 20px 0}
+.notice{padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:.92rem}
+.notice.warn{background:#fff8e1;border-color:#f3d27a;color:#5c4400}
+.notice.error{background:#fdecec;border-color:#f1aeb0;color:#7a1a1d}
+@media (prefers-color-scheme:dark){
+  .notice.warn{background:#352c10;border-color:#6b5716;color:#f3e2a6}
+  .notice.error{background:#38181a;border-color:#7a2f33;color:#f5b9bc}
+}
+
+.layout{display:grid;grid-template-columns:260px 1fr;gap:24px;max-width:1280px;margin:0 auto;padding:20px}
+#chapters{position:sticky;top:78px;align-self:start;max-height:calc(100vh - 100px);overflow:auto;display:flex;flex-direction:column;gap:4px}
+#chapters h2{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:4px 8px 8px}
+.ch{display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;border:0;background:transparent;padding:9px 10px;border-radius:10px;font-size:.92rem}
+.ch:hover{background:var(--brand-soft)}
+.ch.active{background:var(--brand-soft);color:var(--brand);font-weight:650}
+.ch .n{font-size:.75rem;color:var(--muted);background:var(--bg);border-radius:999px;padding:1px 8px;flex:none}
+
+#chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{display:inline-flex;gap:6px;align-items:center;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:.85rem;font-weight:550}
+.chip svg{width:16px;height:16px}
+.chip.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.chip .n{opacity:.7;font-weight:500}
+
+.chapter{margin-bottom:34px}
+.chapter>h2{font-size:1.25rem;margin:0 0 4px}
+.chapter>.sub{color:var(--muted);font-size:.85rem;margin:0 0 14px}
+.group{margin-bottom:18px}
+.group>h3{display:flex;align-items:center;gap:8px;font-size:.9rem;margin:0 0 10px;color:var(--muted);font-weight:650}
+.group>h3 svg{width:18px;height:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.card .row{display:flex;gap:12px;align-items:flex-start}
+.badge{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex:none}
+.badge svg{width:22px;height:22px}
+.t-slides .badge{background:var(--slides-bg);color:var(--slides)}
+.t-infographic .badge{background:var(--info-bg);color:var(--info)}
+.t-module .badge{background:var(--module-bg);color:var(--module)}
+.t-practice .badge{background:var(--practice-bg);color:var(--practice)}
+.t-other .badge{background:var(--other-bg);color:var(--other)}
+.card h4{margin:0;font-size:.95rem;line-height:1.3;word-break:break-word}
+.card .meta{font-size:.76rem;color:var(--muted);margin-top:2px;word-break:break-word}
+.card .btns{display:flex;gap:8px;margin-top:auto}
+.card .btns .btn{flex:1;text-align:center;text-decoration:none;color:inherit;padding:7px 10px;font-size:.82rem}
+.card .btns .btn.primary{color:#fff}
+
+.empty{padding:40px 16px;text-align:center;color:var(--muted)}
+.gate{max-width:460px;margin:40px auto;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.gate h2{margin:0 0 8px}
+.gate p{color:var(--muted);margin:0 0 18px}
+.spinner{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--brand);border-radius:50%;margin:40px auto 12px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+#modal{position:fixed;inset:0;background:rgba(8,10,16,.72);display:none;z-index:50;padding:3vh 3vw}
+#modal.open{display:flex}
+.sheet{background:var(--surface);border-radius:14px;margin:auto;width:100%;max-width:1100px;height:100%;display:flex;flex-direction:column;overflow:hidden}
+.sheet header{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sheet header strong{font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sheet header div{display:flex;gap:8px;flex:none}
+.sheet iframe{flex:1;border:0;width:100%;background:#fff}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr;padding:14px}
+  #chapters{position:static;max-height:none;flex-direction:row;overflow-x:auto;padding-bottom:6px}
+  #chapters h2{display:none}
+  .ch{white-space:nowrap;border:1px solid var(--line);background:var(--surface)}
+  .actions{justify-content:stretch}
+  #search{max-width:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="logo" id="logo"></div>
+    <div>
+      <h1 id="siteTitle">Financial Reporting Revision Hub</h1>
+      <p>Slides, infographics, modules and practice Q&amp;A, organised by chapter</p>
+    </div>
+  </div>
+  <div class="actions">
+    <input id="search" type="search" placeholder="Search materials…" aria-label="Search materials">
+    <button id="authBtn" class="btn primary" type="button">Sign in with Google</button>
+  </div>
+</header>
+
+<div id="notice"></div>
+
+<div class="layout">
+  <nav id="chapters" aria-label="Chapters"></nav>
+  <main>
+    <div id="chips"></div>
+    <div id="content"><div class="spinner"></div></div>
+  </main>
+</div>
+
+<div id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <header>
+      <strong id="mTitle"></strong>
+      <div>
+        <a id="mOpen" class="btn" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">Open in Drive</a>
+        <button id="mClose" class="btn" type="button">Close</button>
+      </div>
+    </header>
+    <iframe id="mFrame" title="Preview" allow="autoplay" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer onload="onGsiLoad()"></script>
+<script>
+(function(){
+"use strict";
+
+const C = Object.assign({ROOT_FOLDER_ID:"",SITE_TITLE:"Revision Hub",SHOW_ROOT_FILES:false,MAX_DEPTH:3}, window.APP_CONFIG || {});
+const SCOPE = "https://www.googleapis.com/auth/drive.readonly";
+const API = "https://www.googleapis.com/drive/v3/files";
+const FOLDER = "application/vnd.google-apps.folder";
+const isPlaceholder = v => !v || /^YOUR_/.test(v);
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const natural = (a,b) => a.localeCompare(b, undefined, {numeric:true, sensitivity:"base"});
+
+/* ---------- Icons (inline SVG, no external requests) ---------- */
+const svg = p => '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>';
+const ICONS = {
+  slides:      svg('<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8.5l4 1.5-4 1.5z"/>'),
+  infographic: svg('<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 17v-5M12 17V8M16 17v-3"/>'),
+  module:      svg('<path d="M4 5.5A2.5 2.5 0 016.5 3H20v16H6.5A2.5 2.5 0 004 21.5z"/><path d="M4 5.5v16M8.5 8h7"/>'),
+  practice:    svg('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 12l2 2 4-4"/>'),
+  other:       svg('<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/>'),
+  logo:        svg('<path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.5V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.5"/>'),
+  all:         svg('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>')
+};
+const TYPES = {
+  slides:      {label:"Slide decks"},
+  infographic: {label:"Infographics"},
+  module:      {label:"Modules & notes"},
+  practice:    {label:"Practice Q&A"},
+  other:       {label:"Other files"}
+};
+const TYPE_ORDER = ["slides","infographic","module","practice","other"];
+
+/* ---------- Classification ---------- */
+function classify(f, path){
+  const hay = (f.name + " " + path).toLowerCase();
+  if (/practice|question|q\s*&\s*a|\bqna\b|answer|\bmcqs?\b|quiz|test paper|\bmock\b|\brtp\b|\bmtp\b/.test(hay)) return "practice";
+  const m = f.mimeType || "", n = f.name.toLowerCase();
+  if (m.startsWith("image/")) return "infographic";
+  if (m.includes("presentation") || /\.(pptx?|key|odp)$/.test(n)) return "slides";
+  if (m === "application/pdf" || m.includes("document") || m.includes("msword") || m.startsWith("text/") || /\.(pdf|docx?|odt|txt|md)$/.test(n)) return "module";
+  return "other";
+}
+const cleanTitle = n => n.replace(/\.[a-z0-9]{2,5}$/i, "").replace(/_+/g, " ").trim();
+const cleanChapter = n => n.replace(/^[a-z]\.\s*/i, "").trim();
+const fmtSize = b => { b = Number(b); if (!b) return ""; const u = ["B","KB","MB","GB"]; let i = 0; while (b >= 1024 && i < 3){ b /= 1024; i++; } return b.toFixed(i ? 1 : 0) + " " + u[i]; };
+function previewUrl(f){
+  const m = f.mimeType;
+  if (m === "application/vnd.google-apps.document") return "https://docs.google.com/document/d/" + f.id + "/preview";
+  if (m === "application/vnd.google-apps.presentation") return "https://docs.google.com/presentation/d/" + f.id + "/preview";
+  if (m === "application/vnd.google-apps.spreadsheet") return "https://docs.google.com/spreadsheets/d/" + f.id + "/preview";
+  return "https://drive.google.com/file/d/" + f.id + "/preview";
+}
+
+/* ---------- Drive API ---------- */
+let token = null, tokenClient = null;
+
+async function driveList(q, pageToken){
+  const p = new URLSearchParams({
+    q, pageSize: "1000", orderBy: "name",
+    fields: "nextPageToken,files(id,name,mimeType,size,modifiedTime,webViewLink)",
+    supportsAllDrives: "true", includeItemsFromAllDrives: "true"
+  });
+  if (pageToken) p.set("pageToken", pageToken);
+  if (!isPlaceholder(C.API_KEY)) p.set("key", C.API_KEY);
+  const res = await fetch(API + "?" + p, { headers: token ? {Authorization: "Bearer " + token} : {} });
+  if (!res.ok){
+    let msg = res.statusText;
+    try { msg = (await res.json()).error.message || msg; } catch(_){}
+    const e = new Error(msg); e.status = res.status; throw e;
+  }
+  return res.json();
+}
+async function listChildren(folderId){
+  const out = []; let t;
+  do {
+    const r = await driveList("'" + folderId + "' in parents and trashed=false", t);
+    out.push(...r.files); t = r.nextPageToken;
+  } while (t);
+  return out;
+}
+async function walk(folderId, path, depth, bucket){
+  const items = await listChildren(folderId);
+  const subs = [];
+  for (const it of items){
+    if (it.mimeType === FOLDER){ if (depth < C.MAX_DEPTH) subs.push(it); }
+    else bucket.push(Object.assign({}, it, {path, type: classify(it, path), title: cleanTitle(it.name)}));
+  }
+  await Promise.all(subs.map(s => walk(s.id, path ? path + " › " + s.name : s.name, depth + 1, bucket)));
+}
+
+let chapters = [];
+let ui = {chapter: "all", type: "all", q: ""};
+
+async function loadAll(){
+  const top = await listChildren(C.ROOT_FOLDER_ID);
+  const folders = top.filter(i => i.mimeType === FOLDER);
+  const loose = top.filter(i => i.mimeType !== FOLDER);
+  const result = await Promise.all(folders.map(async f => {
+    const files = [];
+    await walk(f.id, "", 1, files);
+    files.sort((a,b) => natural(a.name, b.name));
+    return {id: f.id, name: cleanChapter(f.name), rawName: f.name, files};
+  }));
+  if (C.SHOW_ROOT_FILES && loose.length){
+    result.push({id: "root", name: "General", rawName: "~General", files: loose.map(it => Object.assign({}, it, {path: "", type: classify(it, ""), title: cleanTitle(it.name)}))});
+  }
+  result.sort((a,b) => natural(a.rawName, b.rawName));
+  chapters = result.filter(c => c.files.length);
+}
+
+/* ---------- Rendering ---------- */
+function matches(f, ch){
+  if (!ui.q) return true;
+  return (f.name + " " + f.path + " " + ch.name).toLowerCase().includes(ui.q);
+}
+function render(){
+  const nav = $("chapters");
+  const scoped = ui.chapter === "all" ? chapters : chapters.filter(c => c.id === ui.chapter);
+
+  nav.innerHTML = "<h2>Chapters</h2>" +
+    '<button class="ch' + (ui.chapter === "all" ? " active" : "") + '" data-ch="all"><span>All chapters</span><span class="n">' + chapters.reduce((n,c)=>n+c.files.length,0) + "</span></button>" +
+    chapters.map(c => '<button class="ch' + (ui.chapter === c.id ? " active" : "") + '" data-ch="' + esc(c.id) + '"><span>' + esc(c.name) + '</span><span class="n">' + c.files.length + "</span></button>").join("");
+
+  const counts = {all: 0}; TYPE_ORDER.forEach(t => counts[t] = 0);
+  scoped.forEach(c => c.files.forEach(f => { if (matches(f, c)){ counts.all++; counts[f.type]++; } }));
+  $("chips").innerHTML =
+    '<button class="chip' + (ui.type === "all" ? " active" : "") + '" data-type="all">' + ICONS.all + 'All <span class="n">' + counts.all + "</span></button>" +
+    TYPE_ORDER.filter(t => counts[t] || ui.type === t).map(t =>
+      '<button class="chip' + (ui.type === t ? " active" : "") + '" data-type="' + t + '">' + ICONS[t] + esc(TYPES[t].label) + ' <span class="n">' + counts[t] + "</span></button>").join("");
+
+  let html = "";
+  scoped.forEach(c => {
+    const vis = c.files.filter(f => (ui.type === "all" || f.type === ui.type) && matches(f, c));
+    if (!vis.length) return;
+    html += '<section class="chapter"><h2>' + esc(c.name) + '</h2><p class="sub">' + vis.length + " item" + (vis.length === 1 ? "" : "s") + "</p>";
+    TYPE_ORDER.forEach(t => {
+      const group = vis.filter(f => f.type === t);
+      if (!group.length) return;
+      html += '<div class="group"><h3>' + ICONS[t] + esc(TYPES[t].label) + '</h3><div class="grid">' +
+        group.map(f => card(f)).join("") + "</div></div>";
+    });
+    html += "</section>";
+  });
+  $("content").innerHTML = html || '<div class="empty">No materials match your filters.</div>';
+}
+function card(f){
+  const meta = [f.path, fmtSize(f.size)].filter(Boolean).join(" · ");
+  return '<article class="card t-' + f.type + '"><div class="row"><div class="badge">' + ICONS[f.type] + '</div><div><h4>' + esc(f.title) + '</h4>' +
+    (meta ? '<div class="meta">' + esc(meta) + "</div>" : "") + '</div></div><div class="btns">' +
+    '<button class="btn primary" data-open="' + esc(f.id) + '" type="button">Preview</button>' +
+    '<a class="btn" target="_blank" rel="noopener" href="' + esc(f.webViewLink || ("https://drive.google.com/open?id=" + f.id)) + '">Drive</a></div></article>';
+}
+
+/* ---------- Notices / states ---------- */
+function notice(text, kind){ $("notice").innerHTML = text ? '<div class="notice ' + (kind || "") + '">' + esc(text) + "</div>" : ""; }
+function gate(){
+  $("chapters").innerHTML = ""; $("chips").innerHTML = "";
+  $("content").innerHTML = '<div class="gate"><h2>Sign in to view the materials</h2><p>This Drive folder is private. Sign in with the Google account that has access to it.</p><button class="btn primary" id="gateBtn" type="button">Sign in with Google</button></div>';
+  $("gateBtn").onclick = signIn;
+}
+function loading(){ $("content").innerHTML = '<div class="spinner"></div><p class="empty" style="margin-top:0">Loading your revision materials…</p>'; }
+
+async function boot(){
+  if (isPlaceholder(C.API_KEY) && isPlaceholder(C.CLIENT_ID)){
+    notice("Setup needed: add your Google API key and OAuth client ID in config.js, then reload.", "warn");
+    $("content").innerHTML = '<div class="empty">Waiting for configuration.</div>';
+    return;
+  }
+  if (!token && isPlaceholder(C.API_KEY)){ gate(); return; }
+  loading();
+  try {
+    await loadAll();
+    notice("");
+    render();
+  } catch (e){
+    if (e.status === 401 || e.status === 404 || (e.status === 403 && !token)){
+      if (token){ token = null; updateAuth(); }
+      gate();
+    } else {
+      $("content").innerHTML = "";
+      notice("Could not load Drive (" + (e.status || "network") + "): " + e.message + ". Check that the Drive API is enabled and your API key allows this site.", "error");
+    }
+  }
+}
+
+/* ---------- Google sign-in (Google Identity Services token flow) ---------- */
+window.onGsiLoad = function(){
+  if (isPlaceholder(C.CLIENT_ID)) return;
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: C.CLIENT_ID,
+    scope: SCOPE,
+    callback: resp => {
+      if (resp.error){ notice("Sign-in failed: " + resp.error, "error"); return; }
+      token = resp.access_token;
+      setTimeout(() => { token = null; updateAuth(); notice("Your session expired. Please sign in again.", "warn"); gate(); }, Math.max(60, (resp.expires_in || 3600) - 60) * 1000);
+      updateAuth();
+      boot();
+    }
+  });
+};
+function signIn(){
+  if (!tokenClient){ notice("Google sign-in is not ready. Check CLIENT_ID in config.js and your connection.", "error"); return; }
+  tokenClient.requestAccessToken();
+}
+function signOut(){
+  if (token && window.google) google.accounts.oauth2.revoke(token, () => {});
+  token = null; updateAuth(); chapters = []; gate();
+}
+function updateAuth(){
+  const b = $("authBtn");
+  b.textContent = token ? "Sign out" : "Sign in with Google";
+  b.classList.toggle("primary", !token);
+}
+
+/* ---------- Preview modal ---------- */
+function findFile(id){ for (const c of chapters){ const f = c.files.find(x => x.id === id); if (f) return f; } return null; }
+function openModal(id){
+  const f = findFile(id); if (!f) return;
+  $("mTitle").textContent = f.title;
+  $("mOpen").href = f.webViewLink || ("https://drive.google.com/open?id=" + f.id);
+  $("mFrame").src = previewUrl(f);
+  $("modal").classList.add("open"); $("modal").setAttribute("aria-hidden", "false");
+}
+function closeModal(){
+  $("modal").classList.remove("open"); $("modal").setAttribute("aria-hidden", "true");
+  $("mFrame").src = "about:blank";
+}
+
+/* ---------- Events ---------- */
+document.addEventListener("click", e => {
+  const ch = e.target.closest("[data-ch]"); if (ch){ ui.chapter = ch.dataset.ch; render(); return; }
+  const ty = e.target.closest("[data-type]"); if (ty){ ui.type = ty.dataset.type; render(); return; }
+  const op = e.target.closest("[data-open]"); if (op){ openModal(op.dataset.open); return; }
+  if (e.target === $("modal")) closeModal();
+});
+$("mClose").onclick = closeModal;
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+$("search").addEventListener("input", e => { ui.q = e.target.value.trim().toLowerCase(); if (chapters.length) render(); });
+$("authBtn").onclick = () => token ? signOut() : signIn();
+
+/* ---------- Init ---------- */
+$("logo").innerHTML = ICONS.logo;
+$("siteTitle").textContent = C.SITE_TITLE;
+document.title = C.SITE_TITLE;
+updateAuth();
+boot();
+})();
+</script>
+</body>
+</html>
