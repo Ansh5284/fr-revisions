@@ -6,8 +6,8 @@
 //  NEVER put a client SECRET in this file.
 // ============================================================
 window.APP_CONFIG = {
-  API_KEY: "YOUR_API_KEY",
-  CLIENT_ID: "YOUR_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+  API_KEY: "AIzaSyDzJVqOaZPg9Z2VaZjdgK-4gVUDeX8i32Q",
+  CLIENT_ID: "1026014115492-9o7omhkj0vh49viv8fqf751blvos9q0e.apps.googleusercontent.com",
 
   // Drive folder "Financial Reporting Revisions"
   ROOT_FOLDER_ID: "1scHG_sh9f5FM80eiBAAvn9vNFMjgn-04",
